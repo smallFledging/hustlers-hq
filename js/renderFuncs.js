@@ -41,6 +41,7 @@ cardInfoContainer.setAttribute('id', `collapse${ind}`)
 cardInfoContainer.classList.add('accordion-collapse')
 cardInfoContainer.classList.add('collapse')
 // cardInfoContainer.classList.add('show')
+// cardInfoContainer.setAttribute('data-bs-parent', '#accordionExample')
 cardInfoContainer.setAttribute('data-bs-parent', '#accordionExample')
 
 //
