@@ -94,7 +94,7 @@ button {
 }
 
 .accordion-body {
-    height: 450px;
+    height: 200px;
     overflow-y: scroll;
 }
 
