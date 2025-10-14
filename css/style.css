@@ -92,3 +92,14 @@ button {
         font-size: 1.3rem;
     } */
 }
+
+.accordion-body {
+    height: 450px;
+    overflow-y: scroll;
+}
+
+.accordion-item {
+    box-shadow: 6px 7px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 7px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 7px 22px -11px rgba(0,0,0,0.75);
+}
