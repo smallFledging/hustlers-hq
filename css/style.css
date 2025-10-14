@@ -46,6 +46,7 @@ body {
         text-align: center;
     }
     .main__text {
+        text-align: center;
     }
 }
 
@@ -57,7 +58,8 @@ body {
 .random-meal-block {
     display: flex;
     gap: 3rem;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     .random-meal-block__btns {
         display: flex;
         flex-direction: column;
@@ -76,17 +78,24 @@ body {
     }
     .random-meal-block__card {
         display: flex;
-        gap: 1rem;
+        /* gap: 1rem; */
         flex-direction: column;
         flex-grow: 1;
-        align-items: center;
+        justify-items: center;
+        max-width: 20rem;
+        height: 100%;
+        border-radius: 1rem;
+        overflow: hidden;
     }
     .random-meal-block__img {
         width: 100%;
         min-height: 60%;
     }
     .random-meal-block__title {
-        /* flex-grow: 1; */
+        text-align: center;
+        background: lightgray;
+        padding: 1rem;
+        margin-bottom: 0;
     }
 }
 
