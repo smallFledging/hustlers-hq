@@ -40,9 +40,8 @@ const cardInfoContainer = document.createElement('div')
 cardInfoContainer.setAttribute('id', `collapse${ind}`)
 cardInfoContainer.classList.add('accordion-collapse')
 cardInfoContainer.classList.add('collapse')
-cardInfoContainer.classList.add('show')
+// cardInfoContainer.classList.add('show')
 cardInfoContainer.setAttribute('data-bs-parent', '#accordionExample')
-
 
 //
   const cardInfo = document.createElement('p')
