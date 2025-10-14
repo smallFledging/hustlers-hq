@@ -60,6 +60,12 @@ searchBtn.addEventListener("click", async (e) => {
   }
   inputSearch.value = "";
 });
+mealContainer.addEventListener('click', (e) => {
+  const clickedEl = e.target
+  const clickedCard = clickedEl.closest('.main__card')
+  console.log(clickedCard);
+  // if (clickedEl.closest.classList.contains('.main__card')) console.log('ok');
+})
 
 async function getData(url) {
   try {
