@@ -6,12 +6,21 @@ const searchBtn = document.getElementById("searchBtn");
 const inputSearch = document.getElementById("inputSearch");
 const categoriesContainer = document.querySelector(".main__categories");
 const mealContainer = document.querySelector(".main__meal-container");
+const randomMealImgEl = document.querySelector('.random-meal-block__img')
+const randomMealTitleEl = document.querySelector('.random-meal-block__title')
 
 window.addEventListener("DOMContentLoaded", async () => {
   // --- api data
   const categories = await getData(
     "https://www.themealdb.com/api/json/v1/1/categories.php"
   );
+  const randomMeal = await getData('https://www.themealdb.com/api/json/v1/1/random.php')
+  const randomMealImg = randomMeal.meals[0].strMealThumb
+  const randomMealTitle = randomMeal.meals[0].strMeal
+
+  randomMealImgEl.setAttribute('src', randomMealImg)
+  console.log(randomMealImg);
+  randomMealTitleEl.innerText = randomMealTitle
   // console.log(categories.categories);
   const mealsCategories = categories.categories;
   mealsCategories.forEach((el, ind) => {
