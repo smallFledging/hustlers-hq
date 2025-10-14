@@ -1,0 +1,94 @@
+/* --- import reset styles --- */
+@import url(./reset.css);
+
+/* --- main styles --- */
+body {
+    font-size: 1rem;
+}
+[class*="__container"] {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.wrapper .main {
+    flex-grow: 1;
+}
+
+/* --- styles for sections --- */
+h3 {
+    text-align: center;
+    padding: 1rem;
+    flex-grow: 1;
+    font-size: 1.3rem;
+}
+
+/* --- section categories --- */
+.main__categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+.main__category {
+    max-width: 20rem;
+}
+
+/* --- section meals --- */
+.main__container,
+.main__heading {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+.main__title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+.main__search {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+input {
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+button {
+    padding: 0.5rem;
+    min-width: 6rem;
+    border-radius: 1rem;
+    background: rgb(223, 223, 223);
+}
+.main__meal-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.main__card {
+    max-width: 15rem;
+    height: 100%;
+    border-radius: 2rem;
+    border: 0.1rem solid black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-content: center;
+    img {
+        width: 100%;
+    }
+    /* h3 {
+        text-align: center;
+        padding: 1rem;
+        flex-grow: 1;
+        font-size: 1.3rem;
+    } */
+}
