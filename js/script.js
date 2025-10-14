@@ -6,6 +6,7 @@ const searchBtn = document.getElementById("searchBtn");
 const inputSearch = document.getElementById("inputSearch");
 const categoriesContainer = document.querySelector(".main__categories");
 const mealContainer = document.querySelector(".main__meal-container");
+const randomMealContainer = document.querySelector('.random-meal-block__card')
 const randomMealImgEl = document.querySelector('.random-meal-block__img')
 const randomMealTitleEl = document.querySelector('.random-meal-block__title')
 
@@ -14,14 +15,21 @@ window.addEventListener("DOMContentLoaded", async () => {
   const categories = await getData(
     "https://www.themealdb.com/api/json/v1/1/categories.php"
   );
-  const randomMeal = await getData('https://www.themealdb.com/api/json/v1/1/random.php')
-  const randomMealImg = randomMeal.meals[0].strMealThumb
-  const randomMealTitle = randomMeal.meals[0].strMeal
+  const randomMealObj = await getData('https://www.themealdb.com/api/json/v1/1/random.php')
+  const mealDetailsByIdObj = await getData('https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772')
+  
+  console.log(mealDetailsByIdObj);
 
+  // --- random meal card render
+  const randomMeal = randomMealObj.meals[0]
+  const randomMealImg = randomMeal.strMealThumb
+  const randomMealTitle = randomMeal.strMeal
+  const randomMealId = randomMeal.idMeal
   randomMealImgEl.setAttribute('src', randomMealImg)
-  console.log(randomMealImg);
   randomMealTitleEl.innerText = randomMealTitle
-  // console.log(categories.categories);
+  randomMealContainer.setAttribute('id', randomMealId)
+
+  // --- meal categories cards render
   const mealsCategories = categories.categories;
   mealsCategories.forEach((el, ind) => {
     // console.log(el);

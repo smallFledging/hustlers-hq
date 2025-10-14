@@ -1,8 +1,8 @@
 // --- render functions
 
 export function renderMealCard(container, imgURL, mealTitle, url) {
-  const cardLink = document.createElement("a");
-  cardLink.setAttribute("href", url);
+  // const cardLink = document.createElement("a");
+  // cardLink.setAttribute("href", url);
   const card = document.createElement("div");
   card.classList.add("main__card");
   const cardImg = document.createElement("img");
@@ -12,8 +12,8 @@ export function renderMealCard(container, imgURL, mealTitle, url) {
 
   card.append(cardImg);
   card.append(cardTitle);
-  cardLink.append(card);
-  container.append(cardLink);
+  // cardLink.append(card);
+  container.append(card);
 }
 
 export function renderMealsCategories(container, imgURL, mealTitle, info, ind, url) {
