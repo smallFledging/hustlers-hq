@@ -3,16 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer type="module" src="./js/script.js"></script>
     <title>Recipe finder</title>
 </head>
 <body>
-    <input id="inputSearch"></input>
-    <button id="searchBtn">Search</button>
+    
 
-    <h1 id="recipeName"></h1>
-    <img id="recipeImg"></img>
-    <script src="./assets/script.js"></script>
+    <!-- <h1 id="recipeName"></h1>
+    <img id="recipeImg"></img> -->
+
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container"></div>
+        </header>
+        <main class="main">
+            <div class="main__container">
+                <section class="main__heading">
+                    <div class="main__search">
+                        <input id="inputSearch" placeholder="Meal"></input>
+                <button id="searchBtn">Search</button>
+                    </div>
+                   <h1 class="main__title"> Meals List</h1>
+                </section>
+                <section class="main__meal-container">
+                    
+                </section>
+            </div>
+        </main>
+    </div>
+    
 </body>
 
 </html>
