@@ -1,17 +1,15 @@
 /* --- import reset styles --- */
-
 @import url(./reset.css);
 
+/* --- main styles --- */
 body {
     font-size: 1rem;
 }
-
 [class*="__container"] {
     max-width: 75rem;
     margin: 0 auto;
     padding: 1rem;
 }
-
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -20,13 +18,35 @@ body {
 .wrapper .main {
     flex-grow: 1;
 }
-.main__container, .main__heading {
+
+/* --- styles for sections --- */
+h3 {
+    text-align: center;
+    padding: 1rem;
+    flex-grow: 1;
+    font-size: 1.3rem;
+}
+
+/* --- section categories --- */
+.main__categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+.main__category {
+    max-width: 20rem;
+}
+
+/* --- section meals --- */
+.main__container,
+.main__heading {
     display: flex;
     gap: 2rem;
     flex-direction: column;
     align-items: center;
 }
-.main__title{
+.main__title {
     font-size: 2rem;
     font-weight: 600;
 }
@@ -65,10 +85,10 @@ button {
     img {
         width: 100%;
     }
-    h3 {
+    /* h3 {
         text-align: center;
         padding: 1rem;
         flex-grow: 1;
         font-size: 1.3rem;
-    }
+    } */
 }

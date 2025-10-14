@@ -9,16 +9,19 @@ const mealContainer = document.querySelector(".main__meal-container");
 
 window.addEventListener("DOMContentLoaded", async () => {
   // --- api data
-  const categories = await getData("https://www.themealdb.com/api/json/v1/1/categories.php");
+  const categories = await getData(
+    "https://www.themealdb.com/api/json/v1/1/categories.php"
+  );
   // console.log(categories.categories);
   const mealsCategories = categories.categories;
-  mealsCategories.forEach((el) => {
+  mealsCategories.forEach((el, ind) => {
     // console.log(el);
     renderMealsCategories(
       categoriesContainer,
       el.strCategoryThumb,
       el.strCategory,
-      el.strCategoryDescription
+      el.strCategoryDescription,
+      ind
     );
   });
 });
