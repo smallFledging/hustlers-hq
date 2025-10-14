@@ -1,14 +1,30 @@
 // import funcs
-import { renderMealCard } from "./renderFuncs.js";
+import { renderMealCard, renderMealsCategories } from "./renderFuncs.js";
 
+// --- DOM elements
 const searchBtn = document.getElementById("searchBtn");
 const inputSearch = document.getElementById("inputSearch");
+const categoriesContainer = document.querySelector(".main__categories");
+const mealContainer = document.querySelector(".main__meal-container");
 
-const mealContainer = document.querySelector('.main__meal-container')
-
+window.addEventListener("DOMContentLoaded", async () => {
+  // --- api data
+  const categories = await getData("https://www.themealdb.com/api/json/v1/1/categories.php");
+  // console.log(categories.categories);
+  const mealsCategories = categories.categories;
+  mealsCategories.forEach((el) => {
+    // console.log(el);
+    renderMealsCategories(
+      categoriesContainer,
+      el.strCategoryThumb,
+      el.strCategory,
+      el.strCategoryDescription
+    );
+  });
+});
 
 searchBtn.addEventListener("click", async () => {
-  mealContainer.innerHTML = ''
+  mealContainer.innerHTML = "";
   const meals = await getData(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputSearch.value}`
   );
@@ -16,16 +32,13 @@ searchBtn.addEventListener("click", async () => {
   // console.log(mealsArray);
   for (const el of mealsArray) {
     // console.log(el);
-    renderMealCard(mealContainer, el.strMealThumb, el.strMeal)
-//     const recipe =
-//       await getData(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${el.idMeal}
-// `);
+    renderMealCard(mealContainer, el.strMealThumb, el.strMeal);
+    //     const recipe =
+    //       await getData(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${el.idMeal}
+    // `);
   }
   inputSearch.value = "";
 });
-
-const mealsCategories = await getData('https://www.themealdb.com/api/json/v1/1/categories.php')
-console.log(mealsCategories);
 
 async function getData(url) {
   try {
@@ -40,4 +53,3 @@ async function getData(url) {
     return [];
   }
 }
-
