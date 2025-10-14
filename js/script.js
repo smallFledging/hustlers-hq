@@ -52,8 +52,8 @@ searchBtn.addEventListener("click", async (e) => {
   const mealsArray = meals.meals;
   // console.log(mealsArray);
   for (const el of mealsArray) {
-    // console.log(el);
-    renderMealCard(mealContainer, el.strMealThumb, el.strMeal);
+    // console.log(el.idMeal);
+    renderMealCard(mealContainer, el.idMeal, el.strMealThumb, el.strMeal);
     //     const recipe =
     //       await getData(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${el.idMeal}
     // `);
