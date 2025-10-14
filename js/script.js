@@ -26,7 +26,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-searchBtn.addEventListener("click", async () => {
+searchBtn.addEventListener("click", async (e) => {
+  // e.preventDefault()
   mealContainer.innerHTML = "";
   const meals = await getData(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputSearch.value}`
