@@ -6,7 +6,7 @@ const searchBtn = document.getElementById("searchBtn");
 const inputSearch = document.getElementById("inputSearch");
 const categoriesContainer = document.querySelector(".main__categories");
 const mealContainer = document.querySelector(".main__meal-container");
-const randomBtn = document.querySelector('#random-meal')
+const randomBtn = document.querySelector("#random-meal");
 // console.log(randomBtn);
 const randomMealContainer = document.querySelector(".random-meal-block__card");
 const randomMealImgEl = document.querySelector(".random-meal-block__img");
@@ -49,9 +49,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-randomBtn.addEventListener('click', async(e) => {
+randomBtn.addEventListener("click", async (e) => {
   console.log(e);
-  
+
   const randomMealObj = await getData(
     "https://www.themealdb.com/api/json/v1/1/random.php"
   );
@@ -61,10 +61,13 @@ randomBtn.addEventListener('click', async(e) => {
   const randomMealImg = randomMeal.strMealThumb;
   const randomMealTitle = randomMeal.strMeal;
   const randomMealId = randomMeal.idMeal;
-  randomMealImgEl.setAttribute("src", randomMealImg ? randomMealImg : './img/food.jpg');
+  randomMealImgEl.setAttribute(
+    "src",
+    randomMealImg ? randomMealImg : "./img/food.jpg"
+  );
   randomMealTitleEl.innerText = randomMealTitle;
   randomMealContainer.setAttribute("id", randomMealId);
-})
+});
 
 // --- btn clicked event
 searchBtn.addEventListener("click", async (e) => {
