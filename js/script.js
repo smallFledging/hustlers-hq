@@ -65,6 +65,33 @@ mealContainer.addEventListener("click", async (e) => {
 
   const mealRecipe = await getMealById(clickedCardId);
   console.log("mealRecipe", mealRecipe);
+
+  // --- add content to recipe container
+  // --- DOM elements for top block
+  const recipeImg = document.querySelector(".meal-recipe__img");
+  const recipeTitle = document.querySelector(".meal-recipe__title");
+  const recipeArea = document.querySelector(".meal-recipe__area");
+  const recipeCategory = document.querySelector(".meal-recipe__category");
+
+  // --- insert content
+  recipeImg.setAttribute("src", mealRecipe.strMealThumb);
+  recipeTitle.innerText = mealRecipe.strMeal;
+  recipeArea.innerText = mealRecipe.strArea
+  recipeCategory.innerText = mealRecipe.strCategory
+
+  // --- DOM elements for middle block
+  const recipeIngredientsList = document.querySelector(
+    ".meal-recipe__ingredients-list"
+  );
+  const recipeIngredientsLiElements = recipeIngredientsList.children;
+  const recipeMeasureList = document.querySelector(
+    ".meal-recipe__measures-list"
+  );
+  const recipeMeasureLiElements = recipeMeasureList.children;
+
+  // --- DOM elements for bottom block
+  const recipeInstruction = document.querySelector(".meal-recipe__info-text");
+  recipeInstruction.innerText = mealRecipe.strInstructions
 });
 
 async function getMealById(id) {
