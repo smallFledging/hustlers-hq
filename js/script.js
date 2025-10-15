@@ -6,33 +6,31 @@ const searchBtn = document.getElementById("searchBtn");
 const inputSearch = document.getElementById("inputSearch");
 const categoriesContainer = document.querySelector(".main__categories");
 const mealContainer = document.querySelector(".main__meal-container");
-const randomMealContainer = document.querySelector('.random-meal-block__card')
-const randomMealImgEl = document.querySelector('.random-meal-block__img')
-const randomMealTitleEl = document.querySelector('.random-meal-block__title')
+const randomMealContainer = document.querySelector(".random-meal-block__card");
+const randomMealImgEl = document.querySelector(".random-meal-block__img");
+const randomMealTitleEl = document.querySelector(".random-meal-block__title");
 
 window.addEventListener("DOMContentLoaded", async () => {
   // --- api data
   const categories = await getData(
     "https://www.themealdb.com/api/json/v1/1/categories.php"
   );
-  const randomMealObj = await getData('https://www.themealdb.com/api/json/v1/1/random.php')
-  const mealDetailsByIdObj = await getData('https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772')
-  
-  console.log(mealDetailsByIdObj);
+  const randomMealObj = await getData(
+    "https://www.themealdb.com/api/json/v1/1/random.php"
+  );
 
   // --- random meal card render
-  const randomMeal = randomMealObj.meals[0]
-  const randomMealImg = randomMeal.strMealThumb
-  const randomMealTitle = randomMeal.strMeal
-  const randomMealId = randomMeal.idMeal
-  randomMealImgEl.setAttribute('src', randomMealImg)
-  randomMealTitleEl.innerText = randomMealTitle
-  randomMealContainer.setAttribute('id', randomMealId)
+  const randomMeal = randomMealObj.meals[0];
+  const randomMealImg = randomMeal.strMealThumb;
+  const randomMealTitle = randomMeal.strMeal;
+  const randomMealId = randomMeal.idMeal;
+  randomMealImgEl.setAttribute("src", randomMealImg);
+  randomMealTitleEl.innerText = randomMealTitle;
+  randomMealContainer.setAttribute("id", randomMealId);
 
   // --- meal categories cards render
   const mealsCategories = categories.categories;
   mealsCategories.forEach((el, ind) => {
-    // console.log(el);
     renderMealsCategories(
       categoriesContainer,
       el.strCategoryThumb,
@@ -43,6 +41,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+// --- btn clicked event
 searchBtn.addEventListener("click", async (e) => {
   // e.preventDefault()
   mealContainer.innerHTML = "";
@@ -52,20 +51,30 @@ searchBtn.addEventListener("click", async (e) => {
   const mealsArray = meals.meals;
   // console.log(mealsArray);
   for (const el of mealsArray) {
-    // console.log(el.idMeal);
+    // console.log(el);
     renderMealCard(mealContainer, el.idMeal, el.strMealThumb, el.strMeal);
-    //     const recipe =
-    //       await getData(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${el.idMeal}
-    // `);
   }
   inputSearch.value = "";
 });
-mealContainer.addEventListener('click', (e) => {
-  const clickedEl = e.target
-  const clickedCard = clickedEl.closest('.main__card')
-  console.log(clickedCard);
-  // if (clickedEl.closest.classList.contains('.main__card')) console.log('ok');
-})
+
+// --- container clicked event
+mealContainer.addEventListener("click", async (e) => {
+  const clickedEl = e.target;
+  const clickedCard = clickedEl.closest(".main__card");
+  const clickedCardId = clickedCard.getAttribute("id");
+
+  const mealRecipe = await getMealById(clickedCardId);
+  console.log("mealRecipe", mealRecipe);
+});
+
+async function getMealById(id) {
+  const mealDetailsByIdObj = await getData(
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+  );
+  const mealDetails = mealDetailsByIdObj.meals[0];
+  console.log("mealDetails", mealDetails);
+  return mealDetails;
+}
 
 async function getData(url) {
   try {
