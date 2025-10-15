@@ -99,6 +99,7 @@ mealContainer.addEventListener("click", async (e) => {
       mealRecipe[strIngredient] &&
       mealRecipe[strIngredient] !== undefined &&
       mealRecipe[strIngredient].trim !== "" &&
+      mealRecipe[strIngredient] !== " " &&
       mealRecipe[strIngredient] !== null
     ) {
       // console.log(mealRecipe[strIngredient]);
@@ -112,6 +113,7 @@ mealContainer.addEventListener("click", async (e) => {
       key === strMeasure &&
       mealRecipe[strMeasure] &&
       mealRecipe[strMeasure] !== undefined &&
+      mealRecipe[strMeasure] !== " " &&
       mealRecipe[strMeasure].trim !== "" &&
       mealRecipe[strMeasure] !== null
     ) {
