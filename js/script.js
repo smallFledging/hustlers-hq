@@ -9,6 +9,7 @@ const mealContainer = document.querySelector(".main__meal-container");
 const randomMealContainer = document.querySelector(".random-meal-block__card");
 const randomMealImgEl = document.querySelector(".random-meal-block__img");
 const randomMealTitleEl = document.querySelector(".random-meal-block__title");
+const mainRecipeContainer = document.querySelector('.main__recipe')
 
 window.addEventListener("DOMContentLoaded", async () => {
   // --- api data
@@ -65,6 +66,7 @@ mealContainer.addEventListener("click", async (e) => {
 
   const mealRecipe = await getMealById(clickedCardId);
   // console.log("mealRecipe", mealRecipe);
+  mainRecipeContainer.style.visibility = 'visible'
 
   // --- add content to recipe container
   // --- DOM elements for top block
@@ -142,7 +144,15 @@ mealContainer.addEventListener("click", async (e) => {
   // --- DOM elements for bottom block
   const recipeInstruction = document.querySelector(".meal-recipe__info-text");
   recipeInstruction.innerText = mealRecipe.strInstructions;
+
 });
+// --- close btn event
+  const closeBtn = document.querySelector('.meal-recipe__btn')
+  closeBtn.addEventListener('click', (e) => {
+    console.log(e.target);
+    console.log(mainRecipeContainer);
+    mainRecipeContainer.style.visibility = 'hidden'
+  })
 
 async function getMealById(id) {
   const mealDetailsByIdObj = await getData(
