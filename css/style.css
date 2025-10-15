@@ -214,12 +214,16 @@ body {
         justify-content: space-around;
     }
     .meal-recipe__area,
-    .meal-recipe__category {
+    .meal-recipe__category, .meal-recipe__btn {
         background: lightgray;
         padding: 0.8rem;
         min-width: 10rem;
         text-align: center;
         border-radius: 1rem;
+    }
+    .meal-recipe__btn {
+        align-self: flex-start;
+        /* margin-left: 1rem; */
     }
     .meal-recipe__middle-block {
     }
