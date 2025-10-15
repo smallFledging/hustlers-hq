@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script defer type="module" src="./js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script defer type="module" src="./js/recipeDetails.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
     <title>Recipes</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <header class="header">
-            <div class="header__container">
-                <!-- Zeinab -->
+      <header class="header">
+        <div class="header__container">
+          <!-- Zeinab -->
+        </div>
+      </header>
+      <main class="main">
+        <div class="main__container">
+          <!-- Daria recipe details -->
+          <section class="main__recipe meal-recipe">
+            <div class="meal-recipe__wrapper">
+              <div class="meal-recipe__top-block">
+                <a href="./recipes.html"
+                  ><button class="meal-recipe__btn">Close</button></a
+                >
+                <img src="" alt="meal" class="meal-recipe__img" />
+                <h3 class="meal-recipe__title"></h3>
+                <div class="meal-recipe__extra-info">
+                  <p class="meal-recipe__area"></p>
+                  <p class="meal-recipe__category"></p>
+                </div>
+              </div>
+              <div class="meal-recipe__middle-block">
+                <h3 class="meal-recipe__ingredients-label">Ingredients</h3>
+                <div class="meal-recipe__list-block">
+                  <ul class="meal-recipe__ingredients-list"></ul>
+                  <ul class="meal-recipe__measures-list"></ul>
+                </div>
+              </div>
+              <div class="meal-recipe__bottom-block">
+                <h3 class="meal-recipe__full-info-title">Full description</h3>
+                <p class="meal-recipe__info-text"></p>
+              </div>
             </div>
-        </header>
-        <main class="main">
-            <div class="main__container">
-                <!-- Daria recipe details -->
-                 <section class="main__recipe meal-recipe">
-                    <div class="meal-recipe__wrapper">
-                        <div class="meal-recipe__top-block">
-                            <button class="meal-recipe__btn">Close</button>
-                            <img src="" alt="meal" class="meal-recipe__img">
-                            <h3 class="meal-recipe__title"></h3>
-                            <div class="meal-recipe__extra-info">
-                                <p class="meal-recipe__area"></p>
-                                <p class="meal-recipe__category"></p>
-                            </div>
-                        </div>
-                        <div class="meal-recipe__middle-block">
-                            <h3 class="meal-recipe__ingredients-label">
-                                Ingredients
-                            </h3>
-                            <div class="meal-recipe__list-block">
-                                <ul class="meal-recipe__ingredients-list"></ul>
-                                <ul class="meal-recipe__measures-list"></ul>
-                            </div>
-                        </div>
-                        <div class="meal-recipe__bottom-block">
-                            <h3 class="meal-recipe__full-info-title">
-                                Full description
-                            </h3>
-                            <p class="meal-recipe__info-text"></p>
-                        </div>
-                    </div>
-                 </section>
-            </div>
-        </main>
+          </section>
+        </div>
+      </main>
     </div>
-</body>
+  </body>
 </html>
