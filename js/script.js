@@ -61,7 +61,7 @@ randomBtn.addEventListener('click', async(e) => {
   const randomMealImg = randomMeal.strMealThumb;
   const randomMealTitle = randomMeal.strMeal;
   const randomMealId = randomMeal.idMeal;
-  randomMealImgEl.setAttribute("src", randomMealImg);
+  randomMealImgEl.setAttribute("src", randomMealImg ? randomMealImg : './img/food.jpg');
   randomMealTitleEl.innerText = randomMealTitle;
   randomMealContainer.setAttribute("id", randomMealId);
 })
