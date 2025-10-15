@@ -83,26 +83,59 @@ mealContainer.addEventListener("click", async (e) => {
   const recipeIngredientsList = document.querySelector(
     ".meal-recipe__ingredients-list"
   );
-  const recipeIngredientsLiElements = recipeIngredientsList.children;
+  // const recipeIngredientsLiElements = recipeIngredientsList.children;
   const recipeMeasureList = document.querySelector(
     ".meal-recipe__measures-list"
   );
-  const recipeMeasureLiElements = recipeMeasureList.children;
+  // const recipeMeasureLiElements = recipeMeasureList.children;
 
-  
+  let countIngredients = 1;
+  let countMeasures = 1;
+  for (const key in mealRecipe) {
+    const strIngredient = `strIngredient${countIngredients}`;
+    const strMeasure = `strMeasure${countMeasures}`;
+    if (
+      key === strIngredient &&
+      mealRecipe[strIngredient] &&
+      mealRecipe[strIngredient] !== undefined &&
+      mealRecipe[strIngredient].trim !== "" &&
+      mealRecipe[strIngredient] !== null
+    ) {
+      // console.log(mealRecipe[strIngredient]);
+      const li = document.createElement("li");
+      li.innerText = mealRecipe[strIngredient];
+      recipeIngredientsList.append(li);
+      // console.log(key);
+      countIngredients += 1;
+      // console.log(countIngredients);
+    } else if (
+      key === strMeasure &&
+      mealRecipe[strMeasure] &&
+      mealRecipe[strMeasure] !== undefined &&
+      mealRecipe[strMeasure].trim !== "" &&
+      mealRecipe[strMeasure] !== null
+    ) {
+      const li = document.createElement("li");
+      li.innerText = mealRecipe[strMeasure];
+      recipeMeasureList.append(li);
+      // console.log(key);
+      countMeasures += 1;
+      // console.log(countMeasures);
+    }
+  }
 
-  // --- insert data in li elements
-  Array.from(recipeIngredientsLiElements).forEach((el, ind) => {
-    const strIngredient = `strIngredient${ind + 1}`;
-    console.log(strIngredient, mealRecipe[strIngredient]);
-    el.innerText = mealRecipe[strIngredient];
-  });
+  // // --- insert data in li elements
+  // Array.from(recipeIngredientsLiElements).forEach((el, ind) => {
+  //   const strIngredient = `strIngredient${ind + 1}`;
+  //   // console.log(strIngredient, mealRecipe[strIngredient]);
+  //   el.innerText = mealRecipe[strIngredient];
+  // });
 
-  Array.from(recipeMeasureLiElements).forEach((el, ind) => {
-    const strMeasure = `strMeasure${ind + 1}`;
-    console.log(strMeasure, mealRecipe[strMeasure]);
-    el.innerText = mealRecipe[strMeasure];
-  });
+  // Array.from(recipeMeasureLiElements).forEach((el, ind) => {
+  //   const strMeasure = `strMeasure${ind + 1}`;
+  //   // console.log(strMeasure, mealRecipe[strMeasure]);
+  //   el.innerText = mealRecipe[strMeasure];
+  // });
 
   // --- DOM elements for bottom block
   const recipeInstruction = document.querySelector(".meal-recipe__info-text");
