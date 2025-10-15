@@ -1,8 +1,8 @@
 // --- render functions
 
 export function renderMealCard(container, id, imgURL, mealTitle, url) {
-  // const cardLink = document.createElement("a");
-  // cardLink.setAttribute("href", url);
+  const cardLink = document.createElement("a");
+  cardLink.setAttribute("href", url);
   const card = document.createElement("div");
   card.classList.add("main__card");
   card.setAttribute('id', id)
@@ -13,13 +13,13 @@ export function renderMealCard(container, id, imgURL, mealTitle, url) {
 
   card.append(cardImg);
   card.append(cardTitle);
-  // cardLink.append(card);
-  container.append(card);
+  cardLink.append(card);
+  container.append(cardLink);
 }
 
 export function renderMealsCategories(container, imgURL, mealTitle, info, ind, url) {
   const cardLink = document.createElement("div");
-  cardLink.setAttribute("href", url);
+  // cardLink.setAttribute("href", url);
   const card = document.createElement("div");
   card.classList.add("main__category");
   card.classList.add("accordion-item"); //

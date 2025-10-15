@@ -14,9 +14,7 @@ const randomMealTitleEl = document.querySelector(".random-meal-block__title");
 const mainRecipeContainer = document.querySelector(".main__recipe");
 const closeBtn = document.querySelector(".meal-recipe__btn");
 
-const containers = document.querySelectorAll(
-  ".main__meal-container, .random-meal-block__card"
-);
+// const containers = document.querySelectorAll(".main__meal-container, .random-meal-block__card");
 
 window.addEventListener("DOMContentLoaded", async () => {
   // --- api data
@@ -49,8 +47,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+if(randomBtn){
 randomBtn.addEventListener("click", async (e) => {
-  console.log(e);
+  // console.log(e);
 
   const randomMealObj = await getData(
     "https://www.themealdb.com/api/json/v1/1/random.php"
@@ -67,23 +66,27 @@ randomBtn.addEventListener("click", async (e) => {
   );
   randomMealTitleEl.innerText = randomMealTitle;
   randomMealContainer.setAttribute("id", randomMealId);
-});
+});}
 
 // --- btn clicked event
+if(searchBtn){
 searchBtn.addEventListener("click", async (e) => {
   // e.preventDefault()
   mealContainer.innerHTML = "";
-  const meals = await getData(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputSearch.value}`
-  );
-  const mealsArray = meals.meals;
-  // console.log(mealsArray);
-  for (const el of mealsArray) {
-    // console.log(el);
-    renderMealCard(mealContainer, el.idMeal, el.strMealThumb, el.strMeal);
+  if (!inputSearch.value) alert("enter a meal title");
+  else {
+    const meals = await getData(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputSearch.value}`
+    );
+    const mealsArray = meals.meals;
+    // console.log(mealsArray);
+    for (const el of mealsArray) {
+      // console.log(el);
+      renderMealCard(mealContainer, el.idMeal, el.strMealThumb, el.strMeal, './recipeDetails.html');
+    }
   }
   inputSearch.value = "";
-});
+});}
 
 // --- container clicked event
 // randomMealContainer
@@ -91,6 +94,71 @@ searchBtn.addEventListener("click", async (e) => {
 // containers.forEach((container) => {
 // console.log(container);
 
+// randomMealContainer.addEventListener("click", async (e) => {
+//   const clickedEl = e.target;
+//   const clickedCard = clickedEl.closest(".main__card");
+//   const clickedCardId = clickedCard.getAttribute("id");
+
+//   const mealRecipe = await getMealById(clickedCardId);
+//   mainRecipeContainer.style.visibility = "visible";
+
+//   // --- add content to recipe container
+//   // --- DOM elements for top block
+//   const recipeImg = document.querySelector(".meal-recipe__img");
+//   const recipeTitle = document.querySelector(".meal-recipe__title");
+//   const recipeArea = document.querySelector(".meal-recipe__area");
+//   const recipeCategory = document.querySelector(".meal-recipe__category");
+
+//   // --- insert content
+//   recipeImg.setAttribute("src", mealRecipe.strMealThumb);
+//   recipeTitle.innerText = mealRecipe.strMeal;
+//   recipeArea.innerText = mealRecipe.strArea;
+//   recipeCategory.innerText = mealRecipe.strCategory;
+
+//   // --- DOM elements for middle block
+//   const recipeIngredientsList = document.querySelector(
+//     ".meal-recipe__ingredients-list"
+//   );
+//   const recipeMeasureList = document.querySelector(
+//     ".meal-recipe__measures-list"
+//   );
+//   let countIngredients = 1;
+//   let countMeasures = 1;
+//   for (const key in mealRecipe) {
+//     const strIngredient = `strIngredient${countIngredients}`;
+//     const strMeasure = `strMeasure${countMeasures}`;
+//     if (
+//       key === strIngredient &&
+//       mealRecipe[strIngredient] &&
+//       mealRecipe[strIngredient] !== undefined &&
+//       mealRecipe[strIngredient].trim !== "" &&
+//       mealRecipe[strIngredient] !== " " &&
+//       mealRecipe[strIngredient] !== null
+//     ) {
+//       const li = document.createElement("li");
+//       li.innerText = mealRecipe[strIngredient];
+//       recipeIngredientsList.append(li);
+//       countIngredients += 1;
+//     } else if (
+//       key === strMeasure &&
+//       mealRecipe[strMeasure] &&
+//       mealRecipe[strMeasure] !== undefined &&
+//       mealRecipe[strMeasure] !== " " &&
+//       mealRecipe[strMeasure].trim !== "" &&
+//       mealRecipe[strMeasure] !== null
+//     ) {
+//       const li = document.createElement("li");
+//       li.innerText = mealRecipe[strMeasure];
+//       recipeMeasureList.append(li);
+//       countMeasures += 1;
+//     }
+//   }
+//   // --- DOM elements for bottom block
+//   const recipeInstruction = document.querySelector(".meal-recipe__info-text");
+//   recipeInstruction.innerText = mealRecipe.strInstructions;
+// });
+
+if(mealContainer) {
 mealContainer.addEventListener("click", async (e) => {
   const clickedEl = e.target;
   const clickedCard = clickedEl.closest(".main__card");
@@ -176,14 +244,15 @@ mealContainer.addEventListener("click", async (e) => {
   // --- DOM elements for bottom block
   const recipeInstruction = document.querySelector(".meal-recipe__info-text");
   recipeInstruction.innerText = mealRecipe.strInstructions;
-});
+});}
 // });
 // --- close btn event
+if(closeBtn){
 closeBtn.addEventListener("click", (e) => {
   console.log(e.target);
   console.log(mainRecipeContainer);
   mainRecipeContainer.style.visibility = "hidden";
-});
+});}
 
 async function getMealById(id) {
   const mealDetailsByIdObj = await getData(
