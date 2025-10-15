@@ -64,7 +64,7 @@ mealContainer.addEventListener("click", async (e) => {
   const clickedCardId = clickedCard.getAttribute("id");
 
   const mealRecipe = await getMealById(clickedCardId);
-  console.log("mealRecipe", mealRecipe);
+  // console.log("mealRecipe", mealRecipe);
 
   // --- add content to recipe container
   // --- DOM elements for top block
@@ -76,8 +76,8 @@ mealContainer.addEventListener("click", async (e) => {
   // --- insert content
   recipeImg.setAttribute("src", mealRecipe.strMealThumb);
   recipeTitle.innerText = mealRecipe.strMeal;
-  recipeArea.innerText = mealRecipe.strArea
-  recipeCategory.innerText = mealRecipe.strCategory
+  recipeArea.innerText = mealRecipe.strArea;
+  recipeCategory.innerText = mealRecipe.strCategory;
 
   // --- DOM elements for middle block
   const recipeIngredientsList = document.querySelector(
@@ -89,9 +89,24 @@ mealContainer.addEventListener("click", async (e) => {
   );
   const recipeMeasureLiElements = recipeMeasureList.children;
 
+  
+
+  // --- insert data in li elements
+  Array.from(recipeIngredientsLiElements).forEach((el, ind) => {
+    const strIngredient = `strIngredient${ind + 1}`;
+    console.log(strIngredient, mealRecipe[strIngredient]);
+    el.innerText = mealRecipe[strIngredient];
+  });
+
+  Array.from(recipeMeasureLiElements).forEach((el, ind) => {
+    const strMeasure = `strMeasure${ind + 1}`;
+    console.log(strMeasure, mealRecipe[strMeasure]);
+    el.innerText = mealRecipe[strMeasure];
+  });
+
   // --- DOM elements for bottom block
   const recipeInstruction = document.querySelector(".meal-recipe__info-text");
-  recipeInstruction.innerText = mealRecipe.strInstructions
+  recipeInstruction.innerText = mealRecipe.strInstructions;
 });
 
 async function getMealById(id) {
