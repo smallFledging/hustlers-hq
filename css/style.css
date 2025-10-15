@@ -70,6 +70,10 @@ body {
             padding: 0.8rem;
             border-radius: 1rem;
             width: 100%;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            transform: scale(1.05);
         }
     }
     .random-meal-block__link {
@@ -86,6 +90,10 @@ body {
         height: 100%;
         border-radius: 1rem;
         overflow: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+    .random-meal-block__card:hover {
+        transform: scale(1.05);
     }
     .random-meal-block__img {
         width: 100%;
@@ -111,33 +119,31 @@ body {
 }
 
 /* --- section meals --- */
-/* .main__container,
 .main__heading {
     display: flex;
     gap: 2rem;
     flex-direction: column;
     align-items: center;
-} */
-/* .main__title {
-    font-size: 2rem;
-    font-weight: 600;
-} */
+}
 .main__search {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    width: 100%;
+    input {
+        border: 0.1rem solid black;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        min-width: 70%;
+    }
+    button {
+        padding: 0.5rem;
+        min-width: 6rem;
+        border-radius: 1rem;
+        background: rgb(223, 223, 223);
+    }
 }
-input {
-    border: 0.1rem solid black;
-    border-radius: 1rem;
-    padding: 0.5rem;
-}
-/* button {
-    padding: 0.5rem;
-    min-width: 6rem;
-    border-radius: 1rem;
-    background: rgb(223, 223, 223);
-} */
+
 .main__meal-container {
     display: flex;
     gap: 1rem;
@@ -154,15 +160,116 @@ input {
     flex-direction: column;
     gap: 1rem;
     align-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
     img {
         width: 100%;
     }
-    /* h3 {
+    h3 {
         text-align: center;
         padding: 1rem;
         flex-grow: 1;
         font-size: 1.3rem;
-    } */
+    }
+}
+.main__card:hover {
+    transform: scale(1.05);
+}
+
+/* --- section meal recipe --- */
+.main {
+    .main__recipe {
+        position: absolute;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+    }
+}
+.meal-recipe {
+    visibility: hidden;
+    .meal-recipe__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        background: white;
+        overflow: hidden;
+    }
+    .meal-recipe__top-block,
+    .meal-recipe__middle-block,
+    .meal-recipe__bottom-block {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    .meal-recipe__img {
+        /* width: 30rem; */
+        /* width: 100%; */
+        border-radius: 2rem;
+        max-height: 30rem;
+    }
+    .meal-recipe__title {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .meal-recipe__extra-info {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-around;
+    }
+    .meal-recipe__area,
+    .meal-recipe__category,
+    .meal-recipe__btn {
+        background: lightgray;
+        padding: 0.8rem;
+        min-width: 10rem;
+        text-align: center;
+        border-radius: 1rem;
+    }
+    .meal-recipe__btn {
+        align-self: flex-start;
+        /* margin-left: 1rem; */
+    }
+    .meal-recipe__middle-block {
+    }
+    .meal-recipe__ingredients-label {
+    }
+    .meal-recipe__list-block {
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        /* max-height: 10rem; */
+    }
+    .meal-recipe__ingredients-list,
+    .meal-recipe__measures-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        /* height: fit-content; */
+        /* width: 100%; */
+        li {
+            text-align: center;
+            /* border: 0.1rem solid black; */
+        }
+    }
+    .meal-recipe__ingredients-list {
+        li {
+            font-weight: 700;
+        }
+    }
+    .meal-recipe__bottom-block {
+    }
+    .meal-recipe__full-info-title {
+    }
+    .meal-recipe__info-text {
+    }
 }
 
 .accordion-body {
@@ -171,7 +278,7 @@ input {
 }
 
 .accordion-item {
-    box-shadow: 6px 7px 22px -11px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 6px 7px 22px -11px rgba(0,0,0,0.75);
-    -moz-box-shadow: 6px 7px 22px -11px rgba(0,0,0,0.75);
+    box-shadow: 6px 7px 22px -11px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 6px 7px 22px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 6px 7px 22px -11px rgba(0, 0, 0, 0.75);
 }
