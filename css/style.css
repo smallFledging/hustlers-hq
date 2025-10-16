@@ -366,3 +366,12 @@ body {
     -webkit-box-shadow: 6px 7px 22px -11px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 7px 22px -11px rgba(0, 0, 0, 0.75);
 }
+
+@media screen and (max-width: 700px) {
+    .main__recipes-display {
+        display: block;
+    }
+    .main__categories {
+        max-width: 100%;
+    }
+}
