@@ -6,6 +6,8 @@
 
 <img width="589" height="584" alt="wireframe2" src="https://github.com/user-attachments/assets/30af890c-56a4-4eea-b78a-e53df067ec98" />
 
+<img width="589" height="655" alt="wireframe3" src="https://github.com/user-attachments/assets/b7c54766-28b8-48c0-b0a9-70223458a91c" />
+
 
 ## Purpose: To allow users to find recipes based on ingredients they have in the fridge!
 ## Features: Users can find their new favourite meal by searching ingredients or meals in the input, and viewing the full description with ingredients and instructions
@@ -19,5 +21,6 @@
 - app displays data dynamically using Javascript and DOM manipulation
 - deployed on Github pages
 - includes transitions
+- responsive design for mobile and desktop
 
 Webpage: https://smallfledging.github.io/hustlers-hq/
