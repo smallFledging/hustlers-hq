@@ -279,6 +279,11 @@ body {
         border-radius: 2rem;
         max-height: 30rem;
     }
+    @media (max-width: 39.375rem) {
+        .meal-recipe__img {
+            display: none;
+        }
+    }
     .meal-recipe__title {
         font-size: 2rem;
         font-weight: 600;
@@ -327,12 +332,25 @@ body {
     .meal-recipe__block {
         display: flex;
     }
+    @media (max-width: 39.375rem) {
+        .meal-recipe__block {
+            flex-direction: column;
+        }
+    }
     .meal-recipe__list-block {
         width: 100%;
         display: flex;
         gap: 2rem;
         /* justify-content: center; */
         /* max-height: 10rem; */
+    }
+    @media (max-width: 39.375rem) {
+        .meal-recipe__list-block {
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
     }
     .meal-recipe__ingredients-list,
     .meal-recipe__measures-list {
