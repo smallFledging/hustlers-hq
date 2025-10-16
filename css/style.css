@@ -24,6 +24,39 @@ body {
     gap: 2rem;
     position: relative;
 }
+/* --- header styles --- */
+.header a, .header p {
+    text-decoration: none;
+    color: inherit;
+    margin: 0;
+}
+.header__container {
+}
+.header {
+    .header__body {
+        background: lightgray;
+        border-radius: 1.5rem;
+        padding: 1rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .header__logo {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        img {
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+    .header__title {
+    }
+    .header__btn {
+    }
+}
 
 /* --- swiper --- */
 .swiper {
