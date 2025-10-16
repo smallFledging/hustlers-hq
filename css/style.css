@@ -25,12 +25,11 @@ body {
     position: relative;
 }
 /* --- header styles --- */
-.header a, .header p {
+.header a,
+.header p {
     text-decoration: none;
     color: inherit;
     margin: 0;
-}
-.header__container {
 }
 .header {
     .header__body {
@@ -41,7 +40,6 @@ body {
         gap: 1rem;
         justify-content: space-between;
         align-items: center;
-
     }
     .header__logo {
         display: flex;
@@ -54,8 +52,6 @@ body {
             width: 3rem;
             height: 3rem;
         }
-    }
-    .header__title {
     }
     .header__btn {
         background: white;
@@ -118,10 +114,7 @@ body {
 }
 
 /* --- styles for get random meal --- */
-.main {
-    .main__random-meal {
-    }
-}
+
 .random-meal-block {
     display: flex;
     gap: 3rem;
@@ -142,10 +135,6 @@ body {
         button:hover {
             transform: scale(1.05);
         }
-    }
-    .random-meal-block__link {
-    }
-    .random-meal-block__text {
     }
     .random-meal-block__card {
         display: flex;
@@ -257,14 +246,14 @@ body {
 }
 
 /* --- section meal recipe --- */
-.main {
-    /* .main__recipe {
+/* .main {
+    .main__recipe {
         position: absolute;
         z-index: 5;
         width: 100%;
         height: 100%;
-    } */
-}
+    }
+} */
 .meal-recipe {
     /* visibility: hidden; */
     .meal-recipe__wrapper {
@@ -338,10 +327,6 @@ body {
     .meal-recipe__block {
         display: flex;
     }
-    .meal-recipe__middle-block {
-    }
-    .meal-recipe__ingredients-label {
-    }
     .meal-recipe__list-block {
         width: 100%;
         display: flex;
@@ -368,12 +353,6 @@ body {
         li {
             font-weight: 700;
         }
-    }
-    .meal-recipe__bottom-block {
-    }
-    .meal-recipe__full-info-title {
-    }
-    .meal-recipe__info-text {
     }
 }
 
