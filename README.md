@@ -1,4 +1,4 @@
-<img width="589" height="584" alt="wireframe2" src="https://github.com/user-attachments/assets/25c70b9e-633a-4ea6-b8df-819d4a9c6ecf" /># Interactive Web Application using a 3rd Party API
+# Interactive Web Application using a 3rd Party API
 
 ## Wireframes
 
