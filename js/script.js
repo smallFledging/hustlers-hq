@@ -13,6 +13,7 @@ const randomBtn = document.querySelector("#random-meal");
 const randomMealContainer = document.querySelector(".random-meal-block__card");
 const randomMealImgEl = document.querySelector(".random-meal-block__img");
 const randomMealTitleEl = document.querySelector(".random-meal-block__title");
+const randomMealLink = randomMealContainer.closest('a')
 
 
 // const mainRecipeContainer = document.querySelector(".main__recipe");
@@ -29,13 +30,13 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   // --- random meal card render
   const randomMeal = randomMealObj.meals[0];
-
   const randomMealImg = randomMeal.strMealThumb;
   const randomMealTitle = randomMeal.strMeal;
   const randomMealId = randomMeal.idMeal;
   randomMealImgEl.setAttribute("src", randomMealImg);
   randomMealTitleEl.innerText = randomMealTitle;
   randomMealContainer.setAttribute("id", randomMealId);
+  randomMealLink.setAttribute('href', `./recipeDetails.html?id=${randomMealId}`)
 
   // --- meal categories cards render
   // if (categoriesContainer) {
