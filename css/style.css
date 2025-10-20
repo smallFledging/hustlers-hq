@@ -71,8 +71,8 @@ body {
 }
 @media (max-width: 46rem) {
     .swiper {
-    max-height: 15rem;
-}
+        max-height: 15rem;
+    }
 }
 
 .swiper-slide {
@@ -167,6 +167,11 @@ body {
         padding: 1rem;
         margin-bottom: 0;
     }
+    a {
+        text-decoration: none;
+        color: inherit;
+        display: inline-block;
+    }
 }
 @media (max-width: 39.375rem) {
     .random-meal-block {
@@ -176,7 +181,7 @@ body {
         width: 100%;
         flex-direction: row;
         justify-content: center;
-        a{
+        a {
             flex-shrink: 0;
         }
         button {
